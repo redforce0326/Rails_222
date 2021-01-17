@@ -1,0 +1,39 @@
+<div class="container sign">
+ <div class="sign-flame">
+  <p class="sign-title">新しいアカウントを作成</p>
+<div class="sign-inner">
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+  
+  <div class="field">
+    <div class="field-icon"></div>
+    <%= f.text_field :name, autofocus: true,:placeholder =>"ユーザー名" %>
+  </div>
+  
+  <div class="field">
+     <div class="field-icon"></div>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" ,:placeholder =>"メールアドレス"%>
+  </div>
+
+  <div class="field">
+     <div class="field-icon"></div>
+    <%= f.password_field :password, autocomplete: "new-password",:placeholder =>"パスワード" %>
+  </div>
+
+  <div class="field">
+     <div class="field-icon"></div>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password",:placeholder =>"パスワード確認"%>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "新しいアカウントを作成" %>
+  </div>
+<% end %>
+</div>
+<div class="other-sign">
+  <a href="/users/sign_in" class="other-sign-link">すでにアカウントをお持ちの方はこちら</a>
+</div>
+</div>
+<%= render "devise/shared/links" %>
+</div>
+</div>

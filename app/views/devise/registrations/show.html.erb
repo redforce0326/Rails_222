@@ -1,0 +1,46 @@
+<div class="user-profile">
+  <div class="profile-box">
+    <div class="profile-title">
+      <h5>プロフィール</h5>  
+    </div>  
+    <div class="update-contents">
+      <div class="row">
+        <div class="profile-image-current">
+        <% if @user.image.attached? %>
+        <%= @user.image.attached %>
+        <% else %>
+        <img src="https://presite-potepancamp-rails-02.herokuapp.com/assets/default_icon.jpg">
+        <% end %>
+        </div>
+      </div>  
+    </div>
+    <%= form_with model: @user,url: "/users/create" do |f| %>
+    <div class="update-contents">
+      <div class="row">
+        <%= f.label :image, "プロフィール画像" %>
+        <div class="profile-image"><%= f.file_field :image %></div>
+      </div>  
+    </div>
+    <div class="update-contents">
+      <div class="row">
+        <%= f.label :name, "名前" %>
+        <div class="profile-name"><%= f.text_field :name %></div>
+      </div>  
+    </div>
+    <div class="update-contents">
+      <div class="row">
+        <%= f.label :profile, "プロフィール" %>
+        <%= f.text_area :profile, :placeholder => "自己紹介文を入力してください" %>
+      </div>
+    </div>
+    <div class="update-contents">
+      <div class="row">
+        <div class="profile-button"><%= f.submit "更新"%></div>
+      </div>  
+    </div>
+    
+    <% end %>
+  </div>
+    
+    
+</div>

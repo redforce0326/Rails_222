@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Lesson2</title>
+    <title>lesson2</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -9,8 +9,48 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
+    <header>
+　  <div class="header-content">
+　    <div class="header-left">
+　      <a href="/" class="header-img">
+　        <img src ="https://presite-potepancamp-rails-02.herokuapp.com/assets/logo.png">
+　      </a>
+　      <%= form_tag("/rooms/search",:method => 'get') do  %>
+　      <div class="search-box">
+　      <%= text_field_tag :area, "",class: "search-area",placeholder: "エリア"%>
+        </div>
+        <div class="search-box">
+　      <%= text_field_tag :keyword,"" ,class: "search-area",placeholder: "キーワード"%>
+　      <%= submit_tag"検索" ,class: "submit" %>
+        </div>
+        <% end %>
+　    </div>
+　    <div class="header-right">
+　      <% if user_signed_in? %>
+　      <ul class="dropdwn">
+　        <li class="user-list-title">ユーザー詳細
+　        <ul class="dropdwn_menu">
+　        <li class="dropdawn_item"><a href="/rooms/new" class="room_new">ルーム登録</a></li>
+　        <li class="dropdawn_item"><a href="/rooms/index" class="room_index">登録済みルーム一覧</a></li>
+　        <li class="dropdawn_item"><a href="/reservations/index" class="room_index">予約一覧</a></li>
+　        <li class="dropdawn_item"><a href="/users/profile" class="profile_button">プロフィール</a></li>
+　        <li class="dropdawn_item"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+　        </ul>
+　        </li>
+　      </ul>
+　      <% else %>
+　      <a href="/users/sign_up" class="sign_up">新規登録</a>
+　      <a href="/users/sign_in" class="sign_in">ログイン</a>
+　   　 <% end %>
+　   　 </div>
+　    </div>
+　  </div>
+　  </header>
     <%= yield %>
+    <footer>
+　    <p>© 2021 Pote Shere.INC.</p>
+　  </footer>
   </body>
+  
 </html>

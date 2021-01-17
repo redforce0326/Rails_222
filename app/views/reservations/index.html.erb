@@ -1,0 +1,23 @@
+<div class="room_index">
+  <h4>予約一覧</h4>
+  <table class="index_table">
+    <thead>
+    　<tr>
+    　   <th>合計料金</th>
+    　   <th>開始日</th> 
+    　   <th>終了日</th> 
+       　<th>予約確定日</th> 
+    　</tr>
+    </thead>
+    <tbody>
+       <% @reservation.each do |r| %>
+      <tr>
+         <td><%= r.total_amount %>円</td> 
+         <td><%= r.set_time_2 %></td> 
+         <td><%= r.set_time_3 %></td> 
+         <td><%= r.set_time_4 %></td> 
+      </tr>
+         <% end %>
+    </tbody>
+  </table>
+</div>

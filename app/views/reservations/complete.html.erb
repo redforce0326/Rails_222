@@ -1,0 +1,28 @@
+<div class="reserve_complete">
+  <div class="row">
+     <div class="complete_wrapper">
+     <div class="complete_box">
+      <div class="complete_items">
+        <label>予約した部屋名</label> 
+        <div class="complete_item complete_1"><%= @room.name %></div>
+      </div> 
+       <div class="complete_items">
+        <label>開始日</label> 
+        <div class="complete_item complete_2"><%= @reservation.set_time_2 %></div>
+      </div>
+       <div class="complete_items">
+        <label>終了日</label> 
+        <div class="complete_item complete_2"><%= @reservation.set_time_3 %></div>
+      </div>
+       <div class="complete_items">
+        <label>合計金額</label> 
+        <div class="complete_item complete_3"><%= @reservation.total_amount %></div>
+      </div>
+     </div> 
+       <div class="complete_action">
+          <%= link_to("トップページに戻る","/") %>
+       </div>
+    </div>
+  </div>  
+    
+</div>

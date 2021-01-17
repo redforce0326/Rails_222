@@ -1,0 +1,30 @@
+<div class="room_index">
+  <h4>登録済みルーム一覧</h4>
+  <table class="index_table">
+    <thead>
+    　<tr>
+         <th>ルーム画像</th> 
+         <th>ルーム名</th> 
+       　<th>ルーム紹介</th> 
+    　   <th>ルーム料金</th> 
+       　<th>作成日</th> 
+    　</tr>
+    </thead>
+    <tbody>
+        <% @room.each do |room| %>
+        
+      <tr>
+         <% if room.image.attached? %>
+         <td><%= image_tag room.image.variant(resize_to_fill: [180, 120]) %></td> 
+         <% end %>
+         <td><%= room.name %></td> 
+         <td><%= room.introduction %></td>  
+         <td><%= room.fee %>円</td> 
+         <td><%= room.set_time %></td> 
+      </tr>
+        <% end %>
+    </tbody>
+  </table>
+  
+ 
+</div>

@@ -1,0 +1,49 @@
+<div class="main">
+  <div class="main-top">
+    <div class="top-wrapper">
+      <div class="wrapper-row">
+        <div class="form-box">
+          <div class="form-area">
+            <p>Pote Shereで最高の思い出を</p>
+            <%= form_tag("/rooms/search",:method => 'get') do  %>
+            <%= text_field_tag :keyword,"" ,class: "top-search",placeholder: "キーワード"%>
+　          <%= submit_tag"検索" ,class: "button" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>  
+  </div>
+  <div class="main-under">
+    <div class="select-area">
+      <h1 class="select-title">おすすめのエリア</h1>
+      <div class="area-box">
+        <div class="area-content">
+          <span>東京</span>
+          <a href = "/rooms/search?area=東京">
+            <img src="https://presite-potepancamp-rails-02.herokuapp.com/assets/img_tokyo.jpg">
+          </a>
+        </div>
+         <div class="area-content">
+          <span>大阪</span>
+          <a href = "/rooms/search?area=大阪">
+            <img src="https://presite-potepancamp-rails-02.herokuapp.com/assets/img_osaka.jpg">
+          </a>
+        </div>
+         <div class="area-content">
+          <span>京都</span>
+          <a href = "/rooms/search?area=京都">
+            <img src="https://presite-potepancamp-rails-02.herokuapp.com/assets/img_kyoto.jpg">
+          </a>
+        </div>
+         <div class="area-content">
+          <span>札幌</span>
+          <a href = "/rooms/search?area=札幌">
+            <img src="https://presite-potepancamp-rails-02.herokuapp.com/assets/img_sapporo.jpg">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

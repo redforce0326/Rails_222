@@ -1,0 +1,64 @@
+<div class="room_box">
+ <h4>検索結果</h4>
+<div class="row">
+<% if :area.present? %>
+<% @room_area.each do |room| %>
+ <div class="row-wrapper">
+ <div class="room_detail">
+  <%= link_to "/rooms/#{room.id}" do %>
+  <div class="room_image">
+    <% if room.image.attached? %>
+      <%= image_tag room.image.variant(resize_to_fill: [305.5, 180]) %>
+    <% end %>
+  </div>
+  <div class="room_profile">
+    <p><%= room.name %></p>
+    <p><%= room.address %></p>
+    <p><%= room.fee %>円</p>
+  </div>
+ <% end %>
+ </div>
+ </div>
+<% end %>
+<% elsif :keyword.present? %>
+<% @room_keyword.each do |room| %>
+<div class="row-wrapper">
+<div class="room_detail">
+  <%= link_to "/rooms/#{room.id}" do %>
+  <div class="room_image">
+    <% if room.image.attached? %>
+      <%= image_tag room.image.variant(resize_to_fill: [305.5, 180]) %>
+    <% end %>
+  </div>
+  <div class="room_profile">
+    <p><%= room.name %></p>
+    <p><%= room.address %></p>
+    <p><%= room.fee %>円</p>
+  </div>
+ <% end %>
+ </div>
+  </div>
+<% end %>
+
+<% else %>
+<% @room_area.each do |room| %>
+<div class="row-wrapper">
+ <div class="room_detail">
+  <%= link_to "/rooms/#{room.id}" do %>
+  <div class="room_image">
+    <% if room.image.attached? %>
+      <%= image_tag room.image.variant(resize_to_fill: [305.5, 180]) %>
+    <% end %>
+  </div>
+  <div class="room_profile">
+    <p><%= room.name %></p>
+    <p><%= room.address %></p>
+    <p><%= room.fee %>円</p>
+  </div>
+ </div>
+  </div>
+<% end %>
+<% end %>
+<% end %>
+</div>
+</div>

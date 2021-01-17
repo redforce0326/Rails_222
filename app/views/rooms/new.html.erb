@@ -1,0 +1,35 @@
+<div class="room_register-contents">
+    <div class="room-register">
+    <%= form_with model: @room,url:"/rooms/create" do |f| %>
+      <div class="room-box">
+        <div class="room-detail">
+          <h3>ルーム情報登録</h3>
+        </div>
+        <div class="room-detail name">
+          <div class="room-icon"><%= f.label :name,"ルーム名"%></div>
+          <%= f.text_field :name,:placeholder => "ルーム名を入力" %>
+        </div>
+        <div class="room-detail">
+          <div class="room-icon"><%= f.label :introduction,"ルーム紹介"%></div>
+          <%= f.text_area :introduction,:placeholder => "ルーム説明を入力" %>
+        </div>
+        <div class="room-detail mini">
+          <div class="room-icon"><%= f.label :fee,"料金" %></div>
+          <%= f.text_field :fee,:placeholder => "一日当たりの料金を入力" %>
+        </div>
+        <div class="room-detail mini">
+          <div class="room-icon"><%= f.label :address,"住所" %></div>
+          <%= f.text_field :address,:placeholder => "住所を入力" %>
+        </div>
+        <div class="room-detail mini">
+          <div class="room-icon"><%= f.label :image,"ルーム画像" %></div>
+          <%= f.file_field :image,:default => "https://presite-potepancamp-rails-02.herokuapp.com/assets/room01.jpg"  %>
+        </div>
+        <div class="room_register_action">
+    　　　<%= f.submit "登録" %>
+  　　　　</div>
+    <% end %>
+    </div>
+    
+    
+</div>

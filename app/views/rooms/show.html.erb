@@ -1,0 +1,58 @@
+<div class="room_detail_contents">
+  <div class="row">
+    <div class="detail-left">
+     <%= image_tag @room.image.variant(resize_to_fill: [750, 425]) %>
+     <div class="room_detail_profile">
+        <div class="room_detail_icon">
+            <%# if @room.User.image.attached? %>
+            <%#= image_tag @room.User.image.variant(resize_to_fill: [65, 65]) %>
+            <%# else %>
+            <img src="https://presite-potepancamp-rails-02.herokuapp.com/assets/default_icon.jpg">
+            <%# end %>
+        </div>
+        <div class="profile-name">
+            <p><%= @room.name %></p>
+            <p><%= @room.address %></p>
+        </div>
+     </div>    
+        <p><%= @room.introduction %></p>
+    </div>  
+    <div class="detail-right">
+      <div class="reserve-box">
+        <div class="fee-title">
+         <h5><%= @room.fee %>/日</h5>   
+        </div>
+        <div class="room_date_select">
+          <%= form_with model: @reservation, url: "/reservations/confirm", local: true, method: :get do |form| %>
+          <div>
+          <%= form.label :start_time, "開始日" %>
+          <%= form.date_field :start_time %>
+          </div>
+          <div>
+          <%= form.label :end_time, "終了日" %>
+          <%= form.date_field :end_time %>
+          </div>
+          <div>
+          <%= form.label :people, "人数" %>
+          <%= form.number_field :people %>
+          <%= form.hidden_field :rooms_id, :value => @room.id %>
+          </div>
+          <% if user_signed_in? %>
+          <%= form.submit "予約" %>
+          <% else %>
+          <%= link_to("ログイン","/users/sign_in") %>
+          <% end %>
+           <% end %>
+        </div>
+        
+        
+        
+      </div>
+        
+        
+        
+        
+        
+    </div>
+  </div>
+ </div>
